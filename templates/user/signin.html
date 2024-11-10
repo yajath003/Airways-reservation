@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} signin {% endblock %}
+{% block nav %}
+{% include "nav.html" %}
+{% endblock %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+<div class="d-flex justify-content-center align-items-center" >
+    <form method="post" action="{{ url_for('user_app.sign_in') }}" role="form" class="w-50">
+        {{ form.hidden_tag() }}
+        {{ render_field(form.user_name, class='form-control') }}
+        {{ render_field(form.password, class='form-control') }}
+        <div align="center">
+          <button type="submit" class="btn btn-primary">Sign In</button>
+      </div>
+     </form>
+</div>
+<div align="center">
+<div><br>
+<h5>Register here:</h5>
+</div>
+<a class="btn btn-primary" href="{{url_for('user_app.sign_up')}}" role="button">Sign Up</a>
+</div>
+{% endblock %}

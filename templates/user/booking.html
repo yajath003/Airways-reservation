@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block nav %}
+{% include "nav.html" %}
+{% endblock %}
+{% block content %}
+{% if plane %}
+    {% from "_formhelpers.html" import render_field %}
+    <h3>Available seats: {{ plane.available_seats }}</h3>
+    <form method="post" action="{{ url_for('user_app.booking', flight_id=plane.flight_id) }}" enctype="multipart/form-data" role="form" class="w-50">
+        {{ form.hidden_tag() }}
+        {{ render_field(form.seats, class="form-control") }}
+        <button type="submit" class="btn btn-primary mt-3">Create</button>
+    </form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}AIR WAYS RESERVATION SYSTEM{% endblock %}
+{% block nav %}
+  {% include 'nav.html' %}
+{% endblock %}
+{% block content %}
+<section class="py-3 py-md-2 py-xl-1">
+  <div class="container overflow-hidden">
+    <div class="row gy-4 gy-lg-0 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card border-0">
+          <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
+            <a href="{{url_for('user_app.sign_in')}}">
+              <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy" src="static/images/reservation.png">
+            </a>
+          </figure>
+          <div class="card-body border bg-white p-4">
+            <h2 class="card-title h4 fw-bold mb-3 text-center">User</h2>
+            <p class="card-text text-secondary text-center">Book your Flight</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card border-0">
+          <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
+            <a href="{{url_for('admin_app.signin')}}">
+              <img class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy" src="static/images/profile.png">
+            </a>
+          </figure>
+          <div class="card-body border bg-white p-4">
+            <h2 class="card-title h4 fw-bold mb-3 text-center">Admin</h2>
+            <p class="card-text text-secondary text-center">Site Admin</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

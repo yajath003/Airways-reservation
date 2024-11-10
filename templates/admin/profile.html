@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} Profile {% endblock %}
+{% block nav %}
+{% include "nav.html" %}
+{% endblock %}
+{% block content %}
+<h3>Admin details:</h3>
+<div>
+    {% if user %}
+    <h4>Admin ID: {{user.admin_id}}</h4>
+    <h4>Admin Name: {{user.admin_name}}</h4>
+    <h4>E-mail: {{user.email}}</h4>
+    {% endif %}
+</div>
+<a class="btn btn-primary" href="{{url_for('admin_app.index')}}" role="button">Log out</a>
+{% endblock %}

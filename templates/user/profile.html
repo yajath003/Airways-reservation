@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Profile {% endblock %}
+{% block nav %}
+{% include "nav.html" %}
+{% endblock %}
+{% block content %}
+
+<h3>User Details:</h3>
+<div>
+    {% if user %}
+        <h4>User ID: {{ user.user_id }}</h4>
+        <h4>Email: {{ user.email }}</h4>
+    {% endif %}
+</div>
+
+<div>
+    {% if booking_table.flight_id %}
+    <h4>Your Bookings:</h4>
+        <table align="center" width="80%" class="table table-striped">
+            <tr>
+                <th>Flight ID</th>
+                <th>Company</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Seats</th>
+            </tr>
+            {% for i in range(booking_table.flight_id|length) %}
+            <tr>
+                <td>{{ booking_table.flight_id[i] }}</td>
+                <td>{{ booking_table.company[i] }}</td>
+                <td>{{ booking_table.From[i] }}</td>
+                <td>{{ booking_table.To[i] }}</td>
+                <td>{{ booking_table.Seats[i] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h4>No Bookings</h4>
+    {% endif %}
+</div>
+
+<a class="btn btn-primary" href="{{ url_for('admin_app.index') }}" role="button">Log out</a>
+{% endblock %}

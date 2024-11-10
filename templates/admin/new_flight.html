@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} New Flight {% endblock %}
+{% block nav %}
+{% include "nav.html" %}
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Add New Flight</h1>
+    {% from "_formhelpers.html" import render_field %}
+    <div class="d-flex justify-content-center align-items-center">
+        <form method="post" action="{{ url_for('admin_app.new_flight') }}" enctype="multipart/form-data" role="form" class="w-50">
+            {{ form.hidden_tag() }}
+            {{ render_field(form.company, class="form-control") }}
+            {{ render_field(form.start_loc, class="form-control") }}
+            {{ render_field(form.destination, class="form-control") }}
+            {{ render_field(form.available_seats, class="form-control") }}
+            {{ render_field(form.price, class="form-control") }}
+            <button type="submit" class="btn btn-primary mt-3">Create</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
